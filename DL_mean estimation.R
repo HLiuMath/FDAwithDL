@@ -3,7 +3,6 @@
 # for functional data with detection limit
 
 rm(list = ls())
-setwd("C:\\Users\\stahl\\OneDrive - University of Leeds\\research\\Energy")
 
 ############# generate dataset
 # Nsimul<-400 # number of simulation replications
@@ -111,7 +110,7 @@ if (scheme=="OBS"){
 t_eval=seq(1, 2, length=200)
 
 # ######### constant approximation
-bw = 0.0075
+bw <- 0.0075
 start_time <- Sys.time()
 xx <- yy.censored <- c()
 for (i in 1:nn){
@@ -138,7 +137,7 @@ constant.approx.time <- end_time-start_time
 
 
 # ######### linear approximation
-bw = 0.01 
+bw <- 0.01 
 start_time <- Sys.time()
 xx <- yy.censored <- c()
 for (i in 1:nn){
@@ -179,3 +178,4 @@ plot(t_eval, constant.approx, type = "l", ylim=c(-2,5), xlab="time", ylab="y",co
 par(new=TRUE)
 plot(t_eval, linear.approx, type = "l", ylim=c(-2,5), xlab="time", ylab="y",col=3, lty=3)
 legend(1,5, c("true", "local constant approx", "local linear approx"), lty=1:3, col=1:3)
+par(mfrow=c(1,1))
